@@ -42,8 +42,8 @@ public class TugasKelompok {
         go [1] = "Motul Scooter LE 10w30";
         
         String srvs, lyn;
-        int hrg;
-        double diskon;
+        int hrg = 0, berkala,lanjutan ;
+        double total;
         
         System.out.println("Pilih kategori Layanan:");
         System.out.println("1. Servis berkala");
@@ -64,12 +64,24 @@ public class TugasKelompok {
                 System.out.println("Harga Jasa dikenakan biaya = Rp.350.000");
                 System.out.println("Anda ingin melanjutakan \n[1] Ya \n[2] Tidak");
                 System.out.print("Masukkan pilihan : ");
-                int berkala = inp.nextInt(); 
+                berkala = inp.nextInt();
+                System.out.println("\n-----Penggantian rem-----\n[1] Ya \n[2] Tidak");
+                lanjutan = inp.nextInt();
+                switch (lanjutan){
+                    case 1:
+                        srvs = "Penggantian rem";
+                        hrg = hrg + 40000;
+                        break;
+                    default:
+                        srvs = "Pilihan tidak Valid";
+                        hrg = 0;
+                        System.out.println("Pilihan tidak valid");
+                }
                 
                 switch (berkala) {
                     case 1:
                         srvs = "Pemeriksaan kondisi mesin, rem, oli mesin, dan ban";
-                        hrg = 350000;
+                        hrg = hrg + 350000;
                         break;
                     default:
                         srvs = "Pilihan tidak Valid";
@@ -78,14 +90,14 @@ public class TugasKelompok {
                 }
                 break;
                 
-            case 2: // Kategori Minuman
+            case 2:
                 System.out.println("\n-----Pilih menu pelayanan-----");
                 lyn = "Servis besar";
                 for (int i = 0; i < 5; i++) {
                     System.out.println((i + 1) + ". " + sb[i]);
                 }
                 System.out.print("Masukkan pilihan 1 ~ 5 : ");
-                int besar = inp.nextInt(); // Input pilihan minuman
+                int besar = inp.nextInt(); 
                 
                 switch (besar) {
                     case 1:
@@ -209,6 +221,9 @@ public class TugasKelompok {
                 hrg = 0;
                 System.out.println("Kategori tidak valid");
         }
+        
+          total = hrg + 20000  ;
+        
           System.out.println("\n===Data Pelayanan===");
           System.out.println("Jasa Layanan : " + lyn);
           System.out.println("Service : " + srvs);
@@ -217,7 +232,7 @@ public class TugasKelompok {
           System.out.println("Jumlah beli : ");
           System.out.println("Jenis Pembayaran : ");
           System.out.println("Diskon : ");
-          System.out.println("Harga Total : ");
+          System.out.println("Harga Total : " + total);
           System.out.println("Bonus : ");
     }
 }
