@@ -17,14 +17,12 @@ public class TugasKelompok {
         sbkl [2] = "Pemeriksaan kondisi oli mesin";
         sbkl [3] = "Pemeriksaan kondisi ban";
         
-        String[] hrgsbkl = {"Rp.40000", "Rp.25000", "Rp.35000", "Rp.15000"};
         
         String[] sb = new String[5];
-        sb [0] = "Pemeriksaan sistem bahan bakar";
-        sb [1] = "Pemeriksaan sistem pendingin";
-        sb [2] = "Pemeriksaan aki";
-        sb [3] = "Penggantian oli mesin dan filter oli";
-        sb [4] = "Penggantian filter udara";
+        sb [0] = "Pembersihan CVT";
+        sb [1] = "Penggantian Oli Gardan";
+        sb [2] = "Penggantian Oli Mesin";
+        sb [3] = "Filter Udara K16";
               
         String[] part = new String [3];
         part [0] = "Penggantian kampas rem";
@@ -32,17 +30,16 @@ public class TugasKelompok {
         part [2] = "Penggantian V belt";
         
         String[] tu = new String[4];
-        tu [0] = "Pengecekan tekanan ban";
-        tu [1] = "Pengecekan kondisi rantai";
-        tu [2] = "Pengecekan radiator";
-        tu [3] = "Pengecekan lampu";
+        tu [0] = "Pengecekan Karburator atau Injektor";
+        tu [1] = "Pengecekan Busi dan Filter Udara";
+        tu [2] = "Pengecekan Sistem Pengapian dan Pendinginan";
         
         String[] go = new String[2];
         go [0] = "Repsol Moto 4T 10w30";
         go [1] = "Motul Scooter LE 10w30";
         
-        String srvs, lyn;
-        int hrg = 0, berkala,lanjutan ;
+        String srvs = null, lyn;
+        int hrg = 0, berkala,lanjutan,lanjutan1,lanjutan2,n1,jmlh = 1 ;
         double total;
         
         System.out.println("Pilih kategori Layanan:");
@@ -61,24 +58,19 @@ public class TugasKelompok {
                 for (int i = 0; i < 4; i++) {
                     System.out.println((i + 1) + ". " + sbkl[i]);
                 }
+                //INPUTAN SERVIS BERKALA
                 System.out.println("Harga Jasa dikenakan biaya = Rp.350.000");
                 System.out.println("Anda ingin melanjutakan \n[1] Ya \n[2] Tidak");
                 System.out.print("Masukkan pilihan : ");
                 berkala = inp.nextInt();
                 System.out.println("\n-----Penggantian rem-----\n[1] Ya \n[2] Tidak");
                 lanjutan = inp.nextInt();
-                switch (lanjutan){
-                    case 1:
-                        srvs = "Penggantian rem";
-                        hrg = hrg + 40000;
-                        break;
-                    default:
-                        srvs = "Pilihan tidak Valid";
-                        hrg = 0;
-                        System.out.println("Pilihan tidak valid");
-                }
+                System.out.println("\n-----Penggantian Ban-----\n[1] Ya \n[2] Tidak");
+                lanjutan1 = inp.nextInt();
+                System.out.println("\n-----Penggantian Oli-----\n[1] Ya \n[2] Tidak");
+                lanjutan2 = inp.nextInt();
                 
-                switch (berkala) {
+                switch (berkala) { //PROGRAM SERVIS BERKALA
                     case 1:
                         srvs = "Pemeriksaan kondisi mesin, rem, oli mesin, dan ban";
                         hrg = hrg + 350000;
@@ -88,38 +80,77 @@ public class TugasKelompok {
                         hrg = 0;
                         System.out.println("Pilihan tidak valid");
                 }
+                switch (lanjutan){ 
+                    case 1:
+                        srvs = "Penggantian rem";
+                        hrg = hrg + 40000;
+                        break;
+                    case 2 :
+                        hrg = hrg + 0;
+                        break;
+                    default:
+                        srvs = "Pilihan tidak Valid";
+                        hrg = 0;
+                        System.out.println("Pilihan tidak valid");
+                }
+                switch (lanjutan1){
+                    case 1:
+                        srvs = "Penggantian Ban";
+                        hrg = hrg + 400000;
+                        break;
+                    case 2 :
+                        hrg = hrg + 0;
+                        break;
+                    default:
+                        srvs = "Pilihan tidak Valid";
+                        hrg = 0;
+                        System.out.println("Pilihan tidak valid");
+                }
+                 switch (lanjutan2){
+                    case 1:
+                        srvs = "Penggantian Oli";
+                        hrg = hrg + 70000;
+                        break;
+                    case 2 :
+                        hrg = hrg + 0;
+                        break;
+                    default:
+                        srvs = "Pilihan tidak Valid";
+                        hrg = 0;
+                        System.out.println("Pilihan tidak valid");
+                }
+                
                 break;
                 
             case 2:
                 System.out.println("\n-----Pilih menu pelayanan-----");
-                lyn = "Servis besar";
-                for (int i = 0; i < 5; i++) {
+                lyn = "Penggantian Filter";
+                for (int i = 0; i < 4; i++) {
                     System.out.println((i + 1) + ". " + sb[i]);
                 }
-                System.out.print("Masukkan pilihan 1 ~ 5 : ");
-                int besar = inp.nextInt(); 
+                System.out.println("Anda ingin melanjutakan \n[1] Ya \n[2] Tidak");
+                System.out.print("Masukkan pilihan : ");
+                int besar = inp.nextInt();
+                System.out.println("\n-----Apakah ingin Mengganti Filter Udara-----\n[1] Ya \n[2] Tidak");
+                n1 = inp.nextInt();
                 
                 switch (besar) {
                     case 1:
-                        srvs = "Pemeriksaan sistem bahan bakar";
-                        hrg = 150000;
+                        srvs = "Pembersihan CVT, Penggantian Oli Gardan, Penggantian Oli Mesin,";
+                        hrg = hrg + 150000;
                         break;
-                    case 2:
-                        srvs = "Pemeriksaan sistem pendingin";
-                        hrg = 100000;
-                        break;
-                   case 3:
-                        srvs = "Pemeriksaan aki";
-                        hrg = 65000;
-                        break;
-                   case 4:
-                        srvs = "Penggantian oli mesin dan filter oli";
-                        hrg = 125000;
-                        break;
-                   case 5:
+                    default:
+                        srvs = "Pilihan tidak Valid";
+                        hrg = 0;
+                        System.out.println("Pilihan tidak valid");
+                }
+                switch (n1) {
+                    case 1:
                         srvs = "Penggantian filter udara";
-                        hrg = 100000;
+                        hrg = hrg + 100000;
                         break;
+                    case 2 :
+                        hrg = hrg + 0;
                     default:
                         srvs = "Pilihan tidak valid";
                         hrg = 0;
@@ -127,15 +158,15 @@ public class TugasKelompok {
                 }
                 break;
                 
-            case 3: // Kategori Minuman
-                System.out.println("Pilih pelayanan : ");
+            case 3:
+                System.out.println("Pilih Produk : ");
                 lyn = "Ganti Oli";
                 for (int i = 0; i < 2; i++) {
                     System.out.println((i + 1) + ". " + go[i]);
                 }
                 System.out.print("Masukkan pilihan (1-2): ");
-                int oli = inp.nextInt(); // Input pilihan minuman
-                
+                int oli = inp.nextInt();
+                System.out.print("Jumlah : "); jmlh = inp.nextInt();
                 switch (oli) {
                     case 1:
                         srvs = "Repsol Moto 4T 10w30";
@@ -152,17 +183,17 @@ public class TugasKelompok {
                 }
                 break;    
                 
-            case 4: // Kategori Minuman
+            case 4: //
                 System.out.println("Pilih pelayanan : ");
                 lyn = "Spare Part";
                 for (int i = 0; i < 3; i++) {
                     System.out.println((i + 1) + ". " + part[i]);
                 }
                 System.out.print("Masukkan pilihan (1-3): ");
-                int prt = inp.nextInt(); // Input pilihan minuman
-                
+                int prt = inp.nextInt();
                 switch (prt) {
                     case 1:
+                        System.out.print("Jumlah : "); jmlh = inp.nextInt();
                         srvs = "Penggantian kampas rem";
                         hrg = 40000;
                         break;
@@ -182,31 +213,20 @@ public class TugasKelompok {
                 break;
                 
                 
-            case 5: // Kategori Minuman
+            case 5:
                 System.out.println("Pilih pelayanan : ");
                 lyn = "Servis besar";
                 for (int i = 0; i < 3; i++) {
                     System.out.println((i + 1) + ". " + tu[i]);
                 }
-                System.out.print("Masukkan pilihan (1-3): ");
-                int tun = inp.nextInt(); // Input pilihan minuman
+                System.out.println("Anda ingin melanjutakan \n[1] Ya \n[2] Tidak");
+                System.out.print("Masukkan pilihan : ");
+                int tun = inp.nextInt();
                 
                 switch (tun) {
                     case 1:
-                        srvs = "Pengecekan tekanan ban";
-                        hrg = 40000;
-                        break;
-                    case 2:
-                        srvs = "Pengecekan kondisi rantai";
-                        hrg = 40000;
-                        break;
-                    case 3:
-                        srvs = "Pengecekan radiator";
-                        hrg = 40000;
-                        break;
-                    case 4:
-                        srvs = "Pengecekan lampu";
-                        hrg = 40000;
+                        srvs = "Pengecekan Karburator atau Injektor, Pengecekan Busi dan Filter Udara\n        : Pengecekan Sistem Pengapian dan Pendinginan ";
+                        hrg = 1000000;
                         break;
                     default:
                         srvs = "Pilihan tidak valid";
@@ -222,7 +242,7 @@ public class TugasKelompok {
                 System.out.println("Kategori tidak valid");
         }
         
-          total = hrg + 20000  ;
+          total = hrg * jmlh + 20000;
         
           System.out.println("\n===Data Pelayanan===");
           System.out.println("Jasa Layanan : " + lyn);
