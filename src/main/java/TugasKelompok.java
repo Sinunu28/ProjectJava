@@ -43,6 +43,7 @@ public class TugasKelompok {
         
         String srvs, lyn;
         int hrg;
+        double diskon;
         
         System.out.println("Pilih kategori Layanan:");
         System.out.println("1. Servis berkala");
