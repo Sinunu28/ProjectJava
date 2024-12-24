@@ -8,5 +8,5 @@
  * @author Advin Rabel
  */
 public class TugasKelompok {
-    
+    panjul anjing
 }
