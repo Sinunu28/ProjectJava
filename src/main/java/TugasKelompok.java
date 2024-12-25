@@ -39,7 +39,7 @@ public class TugasKelompok {
         go [1] = "Motul Scooter LE 10w30";
         
         String srvs = null, lyn;
-        int hrg = 0, berkala,lanjutan,lanjutan1,lanjutan2,n1,jmlh = 1 ;
+        int hrg = 0, berkala,lanjutan,lanjutan1,lanjutan2,n1,jmlh = 1, hrg1=350000;
         double total;
         
         System.out.println("Pilih kategori Layanan:");
@@ -245,7 +245,7 @@ public class TugasKelompok {
           total = hrg * jmlh + 20000;
         
           System.out.println("\n===Data Pelayanan===");
-          System.out.println("Jasa Layanan : " + lyn);
+          System.out.println(lyn + " : " + hrg1);
           System.out.println("Service : " + srvs);
           System.out.println("Merek Motor : ");
           System.out.println("Harga : " + hrg);
