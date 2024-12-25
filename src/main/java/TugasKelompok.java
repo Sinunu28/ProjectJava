@@ -39,7 +39,8 @@ public class TugasKelompok {
         go [1] = "Motul Scooter LE 10w30";
         
         String srvs = null, lyn;
-        int hrg = 0, berkala,lanjutan,lanjutan1,lanjutan2,n1,jmlh = 1, hrg1=350000;
+        int hrg = 0, berkala = 0,lanjutan = 0,lanjutan1 = 0,lanjutan2 = 0,n1,jmlh = 1, hrg1=350000;
+        int srvs1 = 0, srvs2 = 0, srvs3 = 0;
         double total;
         
         System.out.println("Pilih kategori Layanan:");
@@ -247,6 +248,43 @@ public class TugasKelompok {
           System.out.println("\n===Data Pelayanan===");
           System.out.println(lyn + " : " + hrg1);
           System.out.println("Service : " + srvs);
+          
+          if (lanjutan < lanjutan1){
+                            
+                    if (lanjutan < lanjutan2){
+                  System.out.println("servis : " + srvs1);    
+                    }
+                    else if (lanjutan == lanjutan2){
+                        System.out.println("servis : " + srvs1 + ", " + srvs3);
+                    }
+                    else{
+                        System.out.println("sevis : " + srvs3);
+                    }
+                    
+                }
+                
+                else if (lanjutan == lanjutan1){
+                    if (lanjutan1 == lanjutan2){
+                        System.out.println("sistem : " + srvs1 + ", " + srvs2 + ", " + srvs3);
+                    }
+                    else {
+                        System.out.println("servis : " + srvs1 + ", " + srvs2);
+                    }
+                }
+                
+                
+                else{
+                  if (lanjutan1 < lanjutan2){
+                      System.out.println("servis : " + srvs2);
+                  }
+                  else if (lanjutan1 == lanjutan2){
+                      System.out.println("servis : " + srvs2 + ", " + srvs3);
+                  }
+                  else {
+                      System.out.println("servis : " + srvs3);
+                  }
+                }
+          
           System.out.println("Merek Motor : ");
           System.out.println("Harga : " + hrg);
           System.out.println("Jumlah beli : ");
