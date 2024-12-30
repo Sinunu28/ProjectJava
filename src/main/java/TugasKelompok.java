@@ -7,9 +7,14 @@
  *
  * @author Advin Rabel
  */
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 public class TugasKelompok {
     public static void main(String[] args) {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
         Scanner inp = new Scanner(System.in);
         String[] sbkl = new String [4];
         sbkl [0] = "Pemeriksaan kondisi mesin";
@@ -68,7 +73,7 @@ public class TugasKelompok {
                 
                 switch (berkala) { //PROGRAM SERVIS BERKALA
                     case "1":
-                    srvs = "Pemeriksaan kondisi mesin, rem, oli mesin, dan ban";
+                    srvs = "Pemeriksaan kondisi mesin,\nrem, oli mesin, dan ban";
                     hrg = hrg + 350000;
                     System.out.println("[H] Honda");
                     System.out.println("[Y] Yamaha");
@@ -371,7 +376,7 @@ public class TugasKelompok {
                 
                 switch (tun) {
                     case "1":
-                        srvs = "Pengecekan Karburator atau Injektor, Pengecekan Busi dan Filter Udara\n        : Pengecekan Sistem Pengapian dan Pendinginan ";
+                        srvs = "Pengecekan Karburator atau\nInjektor Busi dan Filter Udara\nSistem Pengapian dan Pendinginan ";
                         hrg = 1000000;
                         System.out.println("\n[1] Tunai\n[2] Non Tunai");
                         System.out.print("Jenis Pembayaran : ");
@@ -421,8 +426,13 @@ public class TugasKelompok {
           total = hrg * jmlh - diskon;
           
         // CODINGAN OUTPUT
-          System.out.println("\n===Data Pelayanan===");
-          System.out.println(lyn + " : " + hrg1);
+          System.out.println("\n\n*********** JAYA MOTOR ***********");
+          System.out.println("          Ruko Cimone Jaya     ");
+          System.out.println("       Jl Cimone 12Km. No.09\n");
+          System.out.println("==================================");
+          System.out.println("Kasir : Advin Rabel");
+          System.out.println("==================================");
+          System.out.println("Layanan : " + lyn);
           System.out.println("Jasa : " + srvs);
           
     
@@ -456,7 +466,7 @@ public class TugasKelompok {
                      }
           }
                     else if (lanjutan1 == lanjutan2){
-                        System.out.println("Servis : " + srvs1 + ", " + srvs2 + ", " + srvs3);
+                        System.out.println("Servis : " + srvs1 + ",\n" + srvs2 + ", " + srvs3);
                     }
                     else {
                         System.out.println("servis : " + srvs1 + ", " + srvs2);
@@ -476,10 +486,16 @@ public class TugasKelompok {
                 }
 
           System.out.println("Merek Motor : " + merek);
+          System.out.println("----------------------------------");
           System.out.println("Harga : " + hrg);
           System.out.println("Jumlah beli : " + jmlh);
           System.out.println("Jenis Pembayaran : " + uang);
           System.out.println("Diskon : " + diskon);
           System.out.println("Harga Total : " + total);
+          System.out.println("==================================");
+          System.out.println("Tgl : " + formattedDateTime);
+          System.out.println("---------------------------------");
+          System.out.println("            Terima Kasih");
+          System.out.println("       Sampai Jumpa Kembali :D");
     }
 }
